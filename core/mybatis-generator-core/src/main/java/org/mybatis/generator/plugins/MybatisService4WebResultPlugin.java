@@ -631,7 +631,7 @@ public class MybatisService4WebResultPlugin extends PluginAdapter
 	{
 		method.addJavaDocLine("/**");
 		method.addJavaDocLine(" * 描述：");
-		method.addJavaDocLine(" * @author auto-jiangxp");
+		method.addJavaDocLine(" * @author");
 		method.addJavaDocLine(" * @param");
 		method.addJavaDocLine(" * @return");
 		method.addJavaDocLine(" */");
