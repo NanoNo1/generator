@@ -1,5 +1,5 @@
 /**
- *    Copyright 2006-2016 the original author or authors.
+ *    Copyright ${license.git.copyrightYears} the original author or authors.
  *
  *    Licensed under the Apache License, Version 2.0 (the "License");
  *    you may not use this file except in compliance with the License.
@@ -102,6 +102,13 @@ public abstract class JavaElement {
      */
     public void addAnnotation(String annotation) {
         annotations.add(annotation);
+    }
+
+    /**
+     * jiangxp add
+     */
+    public void removeAnnotation() {
+        annotations.clear();
     }
 
     /**

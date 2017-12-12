@@ -1,0 +1,315 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cetccity.autocode.mapper.GenerateJobMapper">
+  <resultMap id="BaseResultMap" type="com.cetccity.autocode.model.GenerateJob">
+    <id column="ID" jdbcType="DECIMAL" property="id" />
+    <result column="NEED_AUDIT" jdbcType="VARCHAR" property="needAudit" />
+    <result column="JOB_NAME" jdbcType="VARCHAR" property="jobName" />
+    <result column="CRON" jdbcType="VARCHAR" property="cron" />
+    <result column="FREQUENCY" jdbcType="VARCHAR" property="frequency" />
+    <result column="LAST_TIME" jdbcType="TIMESTAMP" property="lastTime" />
+    <result column="NEXT_TIME" jdbcType="TIMESTAMP" property="nextTime" />
+    <result column="TEMPLATE_ID" jdbcType="DECIMAL" property="templateId" />
+    <result column="JOB_STATUS" jdbcType="VARCHAR" property="jobStatus" />
+    <result column="AUDITOR" jdbcType="VARCHAR" property="auditor" />
+    <result column="DESCRIPTION" jdbcType="VARCHAR" property="description" />
+    <result column="SOURCE_TYPE" jdbcType="VARCHAR" property="sourceType" />
+    <result column="SOURCE_API" jdbcType="VARCHAR" property="sourceApi" />
+    <result column="SEND_TIME" jdbcType="VARCHAR" property="sendTime" />
+    <result column="GENERATE_TIME" jdbcType="VARCHAR" property="generateTime" />
+    <result column="CREATOR" jdbcType="VARCHAR" property="creator" />
+    <result column="MODIFIER" jdbcType="VARCHAR" property="modifier" />
+    <result column="CREATE_DATE" jdbcType="TIMESTAMP" property="createDate" />
+    <result column="MODIFY_DATE" jdbcType="TIMESTAMP" property="modifyDate" />
+    <result column="DELETED_FLAG" jdbcType="CHAR" property="deletedFlag" />
+    <result column="AUDITOR_ID" jdbcType="DECIMAL" property="auditorId" />
+    <result column="TIME_MANAGE_ID" jdbcType="DECIMAL" property="timeManageId" />
+    <result column="SERVICE_BEAN_NAME" jdbcType="VARCHAR" property="serviceBeanName" />
+    <result column="SERVICE_METHOD_NAME" jdbcType="VARCHAR" property="serviceMethodName" />
+    <result column="UUID" jdbcType="VARCHAR" property="uuid" />
+    <result column="SERVICE_METHOD_ID" jdbcType="DECIMAL" property="serviceMethodId" />
+    <result column="SERVICE_BEAN_ID" jdbcType="DECIMAL" property="serviceBeanId" />
+    <result column="SCHEDULE_TASK_ID" jdbcType="DECIMAL" property="scheduleTaskId" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    ID, NEED_AUDIT, JOB_NAME, CRON, FREQUENCY, LAST_TIME, NEXT_TIME, TEMPLATE_ID, JOB_STATUS, 
+    AUDITOR, DESCRIPTION, SOURCE_TYPE, SOURCE_API, SEND_TIME, GENERATE_TIME, CREATOR, 
+    MODIFIER, CREATE_DATE, MODIFY_DATE, DELETED_FLAG, AUDITOR_ID, TIME_MANAGE_ID, SERVICE_BEAN_NAME, 
+    SERVICE_METHOD_NAME, UUID, SERVICE_METHOD_ID, SERVICE_BEAN_ID, SCHEDULE_TASK_ID
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from TBL_GENERATE_JOB
+    where ID = #{id,jdbcType=DECIMAL}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from TBL_GENERATE_JOB
+    where ID = #{id,jdbcType=DECIMAL}
+  </delete>
+  <insert id="insertSelective" parameterType="com.cetccity.autocode.model.GenerateJob">
+    insert into TBL_GENERATE_JOB
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        ID,
+      </if>
+      <if test="needAudit != null">
+        NEED_AUDIT,
+      </if>
+      <if test="jobName != null">
+        JOB_NAME,
+      </if>
+      <if test="cron != null">
+        CRON,
+      </if>
+      <if test="frequency != null">
+        FREQUENCY,
+      </if>
+      <if test="lastTime != null">
+        LAST_TIME,
+      </if>
+      <if test="nextTime != null">
+        NEXT_TIME,
+      </if>
+      <if test="templateId != null">
+        TEMPLATE_ID,
+      </if>
+      <if test="jobStatus != null">
+        JOB_STATUS,
+      </if>
+      <if test="auditor != null">
+        AUDITOR,
+      </if>
+      <if test="description != null">
+        DESCRIPTION,
+      </if>
+      <if test="sourceType != null">
+        SOURCE_TYPE,
+      </if>
+      <if test="sourceApi != null">
+        SOURCE_API,
+      </if>
+      <if test="sendTime != null">
+        SEND_TIME,
+      </if>
+      <if test="generateTime != null">
+        GENERATE_TIME,
+      </if>
+      <if test="creator != null">
+        CREATOR,
+      </if>
+      <if test="modifier != null">
+        MODIFIER,
+      </if>
+      <if test="createDate != null">
+        CREATE_DATE,
+      </if>
+      <if test="modifyDate != null">
+        MODIFY_DATE,
+      </if>
+      <if test="deletedFlag != null">
+        DELETED_FLAG,
+      </if>
+      <if test="auditorId != null">
+        AUDITOR_ID,
+      </if>
+      <if test="timeManageId != null">
+        TIME_MANAGE_ID,
+      </if>
+      <if test="serviceBeanName != null">
+        SERVICE_BEAN_NAME,
+      </if>
+      <if test="serviceMethodName != null">
+        SERVICE_METHOD_NAME,
+      </if>
+      <if test="uuid != null">
+        UUID,
+      </if>
+      <if test="serviceMethodId != null">
+        SERVICE_METHOD_ID,
+      </if>
+      <if test="serviceBeanId != null">
+        SERVICE_BEAN_ID,
+      </if>
+      <if test="scheduleTaskId != null">
+        SCHEDULE_TASK_ID,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=DECIMAL},
+      </if>
+      <if test="needAudit != null">
+        #{needAudit,jdbcType=VARCHAR},
+      </if>
+      <if test="jobName != null">
+        #{jobName,jdbcType=VARCHAR},
+      </if>
+      <if test="cron != null">
+        #{cron,jdbcType=VARCHAR},
+      </if>
+      <if test="frequency != null">
+        #{frequency,jdbcType=VARCHAR},
+      </if>
+      <if test="lastTime != null">
+        #{lastTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="nextTime != null">
+        #{nextTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="templateId != null">
+        #{templateId,jdbcType=DECIMAL},
+      </if>
+      <if test="jobStatus != null">
+        #{jobStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="auditor != null">
+        #{auditor,jdbcType=VARCHAR},
+      </if>
+      <if test="description != null">
+        #{description,jdbcType=VARCHAR},
+      </if>
+      <if test="sourceType != null">
+        #{sourceType,jdbcType=VARCHAR},
+      </if>
+      <if test="sourceApi != null">
+        #{sourceApi,jdbcType=VARCHAR},
+      </if>
+      <if test="sendTime != null">
+        #{sendTime,jdbcType=VARCHAR},
+      </if>
+      <if test="generateTime != null">
+        #{generateTime,jdbcType=VARCHAR},
+      </if>
+      <if test="creator != null">
+        #{creator,jdbcType=VARCHAR},
+      </if>
+      <if test="modifier != null">
+        #{modifier,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null">
+        #{createDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyDate != null">
+        #{modifyDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="deletedFlag != null">
+        #{deletedFlag,jdbcType=CHAR},
+      </if>
+      <if test="auditorId != null">
+        #{auditorId,jdbcType=DECIMAL},
+      </if>
+      <if test="timeManageId != null">
+        #{timeManageId,jdbcType=DECIMAL},
+      </if>
+      <if test="serviceBeanName != null">
+        #{serviceBeanName,jdbcType=VARCHAR},
+      </if>
+      <if test="serviceMethodName != null">
+        #{serviceMethodName,jdbcType=VARCHAR},
+      </if>
+      <if test="uuid != null">
+        #{uuid,jdbcType=VARCHAR},
+      </if>
+      <if test="serviceMethodId != null">
+        #{serviceMethodId,jdbcType=DECIMAL},
+      </if>
+      <if test="serviceBeanId != null">
+        #{serviceBeanId,jdbcType=DECIMAL},
+      </if>
+      <if test="scheduleTaskId != null">
+        #{scheduleTaskId,jdbcType=DECIMAL},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.cetccity.autocode.model.GenerateJob">
+    update TBL_GENERATE_JOB
+    <set>
+      <if test="needAudit != null">
+        NEED_AUDIT = #{needAudit,jdbcType=VARCHAR},
+      </if>
+      <if test="jobName != null">
+        JOB_NAME = #{jobName,jdbcType=VARCHAR},
+      </if>
+      <if test="cron != null">
+        CRON = #{cron,jdbcType=VARCHAR},
+      </if>
+      <if test="frequency != null">
+        FREQUENCY = #{frequency,jdbcType=VARCHAR},
+      </if>
+      <if test="lastTime != null">
+        LAST_TIME = #{lastTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="nextTime != null">
+        NEXT_TIME = #{nextTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="templateId != null">
+        TEMPLATE_ID = #{templateId,jdbcType=DECIMAL},
+      </if>
+      <if test="jobStatus != null">
+        JOB_STATUS = #{jobStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="auditor != null">
+        AUDITOR = #{auditor,jdbcType=VARCHAR},
+      </if>
+      <if test="description != null">
+        DESCRIPTION = #{description,jdbcType=VARCHAR},
+      </if>
+      <if test="sourceType != null">
+        SOURCE_TYPE = #{sourceType,jdbcType=VARCHAR},
+      </if>
+      <if test="sourceApi != null">
+        SOURCE_API = #{sourceApi,jdbcType=VARCHAR},
+      </if>
+      <if test="sendTime != null">
+        SEND_TIME = #{sendTime,jdbcType=VARCHAR},
+      </if>
+      <if test="generateTime != null">
+        GENERATE_TIME = #{generateTime,jdbcType=VARCHAR},
+      </if>
+      <if test="creator != null">
+        CREATOR = #{creator,jdbcType=VARCHAR},
+      </if>
+      <if test="modifier != null">
+        MODIFIER = #{modifier,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null">
+        CREATE_DATE = #{createDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyDate != null">
+        MODIFY_DATE = #{modifyDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="deletedFlag != null">
+        DELETED_FLAG = #{deletedFlag,jdbcType=CHAR},
+      </if>
+      <if test="auditorId != null">
+        AUDITOR_ID = #{auditorId,jdbcType=DECIMAL},
+      </if>
+      <if test="timeManageId != null">
+        TIME_MANAGE_ID = #{timeManageId,jdbcType=DECIMAL},
+      </if>
+      <if test="serviceBeanName != null">
+        SERVICE_BEAN_NAME = #{serviceBeanName,jdbcType=VARCHAR},
+      </if>
+      <if test="serviceMethodName != null">
+        SERVICE_METHOD_NAME = #{serviceMethodName,jdbcType=VARCHAR},
+      </if>
+      <if test="uuid != null">
+        UUID = #{uuid,jdbcType=VARCHAR},
+      </if>
+      <if test="serviceMethodId != null">
+        SERVICE_METHOD_ID = #{serviceMethodId,jdbcType=DECIMAL},
+      </if>
+      <if test="serviceBeanId != null">
+        SERVICE_BEAN_ID = #{serviceBeanId,jdbcType=DECIMAL},
+      </if>
+      <if test="scheduleTaskId != null">
+        SCHEDULE_TASK_ID = #{scheduleTaskId,jdbcType=DECIMAL},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=DECIMAL}
+  </update>
+  <select id="selectAll" parameterType="com.cetccity.autocode.model.GenerateJob" resultMap="BaseResultMap">
+     select * from TBL_GENERATE_JOB
+  </select>
+</mapper>
